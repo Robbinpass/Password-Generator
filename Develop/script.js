@@ -20,7 +20,7 @@ function generatePassword() {
   // between 8 and 128. You will want to use NaN method, as well as an if statement to check the size of the number. If either 
   // of these are false, jump out of our function; in other words return false.
 
-  // if the number is valid, move on to the confirms
+ 
   var wantsUpper = window.confirm('Do you want uppercase letters in your password?');
   var wantsLower = window.confirm('Do you want lowercase letters in your password?');
   var wantsNumber = window.confirm('do you want numbers in your password?');
@@ -31,31 +31,33 @@ function generatePassword() {
   console.log(typeof wantsspecchar);
 
 
-
-  // add characters to master set depending on the result of the confirms
   if (wantsUpper) {
-    // then execute this block of code
     masterCharArray = masterCharArray.concat(uppercase);
+
   }
 
   if (wantsLower) {
     masterCharArray = masterCharArray.concat(lowercase);
 
   }
-  // and so on...
 
-  // delete this later maybe
-  var length = 7;
-  // once you have your master set of characters, then you can randomly pick out letters from it and add these
-  // letters to a string. The string is what you return from this function that we're in (generatePassword).
+  if (wantsNumber) {
+    masterCharArray = masterCharArray.concat(numbers);
 
-  for (var i = 1; i < length; i++) {
-    console.log(i);
   }
 
+  if (wantsspecchar) {
+    masterCharArray = masterCharArray.concat(specialchar);
 
-  // your return statement will be the last line of code in your function
-  // return xyz
+  }
+
+}
+
+
+
+
+  for (var i = 1; i < length; i++) {
+    console.log(i)
 }
 
 
@@ -73,4 +75,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
