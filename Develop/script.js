@@ -16,6 +16,11 @@ function generatePassword() {
   // confirm for the remaining criteria, i.e. upper, lower, etc.
   var passwordLength = window.prompt('Please enter password length between 8 and 128 characters long');
   console.log(typeof passwordLength);
+
+  if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
+    window.alert('Please enter a password between 8 and 128 characters');
+    return
+  }
   // knowing the type of data that is returned by window.prompt, check to make sure that it's a number, that it's a number
   // between 8 and 128. You will want to use NaN method, as well as an if statement to check the size of the number. If either 
   // of these are false, jump out of our function; in other words return false.
