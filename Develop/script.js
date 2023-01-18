@@ -7,18 +7,14 @@ var masterCharArray = [];
 
 
 function generatePassword() {
-  console.log('inside generatePassword');
-  // we want to prompt the user for a set of criteria
-  // use window.prompt() or window.confirm()
-  // prompt for the password length
-  // confirm for the remaining criteria, i.e. upper, lower, etc.
   var passwordLength = window.prompt('Please enter password length between 8 and 128 characters long');
   console.log(typeof passwordLength);
 
   if (isNaN(passwordLength) || passwordLength === null || passwordLength < 8 || passwordLength > 128) {
-    window.alert('Please enter a password between 8 and 128 characters');
+    window.alert('Error: Please enter a password between 8 and 128 characters');
     return
   }
+
 
   var wantsUpper = window.confirm('Do you want uppercase letters in your password?');
   var wantsLower = window.confirm('Do you want lowercase letters in your password?');
@@ -28,6 +24,11 @@ function generatePassword() {
   console.log(typeof wantsLower);
   console.log(typeof wantsNumber);
   console.log(typeof wantsspecchar);
+
+  if (!wantsUpper && !wantsLower && !wantsNumber && !wantsspecchar) {
+    window.alert("Error: Please include at least one type of character in your password.");
+    return
+  }
 
 
   if (wantsUpper) {
@@ -47,6 +48,7 @@ function generatePassword() {
 
   if (wantsspecchar) {
     masterCharArray = masterCharArray.concat(specialchar);
+console.log(masterCharArray);
 
   }
 
@@ -55,7 +57,8 @@ function generatePassword() {
 
 
 
-  for (var i = 1; i < length; i++) {
+
+  for (var i = 0; i <= passwordLength; i++) {
     console.log(i)
 }
 
